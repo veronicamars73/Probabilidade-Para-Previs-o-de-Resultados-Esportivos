@@ -95,3 +95,10 @@ for rodada in range(len(resultado_rodadas)):
         acertos_gols_marcados += 1
     if(esperanca_sofridos==resultado_rodadas[rodada+1][1]):
         acertos_gols_sofridos += 1
+
+# Imprimiremos nossa quantidade de acertos
+print("Acertamos {0:1d} previsões de uma rodada completa, isto é, {1:2.2f}%".format(acertos_rodada, (acertos_rodada/33)*100))
+
+print("Acertamos {0:1d} previsões de gols marcados, isto é, {1:2.2f}%".format(acertos_gols_marcados, (acertos_gols_marcados/33)*100))
+
+print("Acertamos {0:1d} previsões de gols sofridos, isto é, {1:2.2f}%".format(acertos_gols_sofridos, (acertos_gols_sofridos/33)*100))
