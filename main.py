@@ -48,11 +48,22 @@ correspondem ao resultado que ocorreu na rodada
 for rodada in range(len(resultado_rodadas)):
     gols_marcados.append(resultado_rodadas[rodada][0])
     gols_sofridos.append(resultado_rodadas[rodada][1])
+
     # Agora iremos obter a frequência do número de gols registrados até o momento
     num_gols, freq_num_gols = np.unique(gols_marcados, return_counts=True)
     # Por questão de organização transformaremos nossos valores em um dicionário do tipo 'gols':frequencia
     dic_gols_marcados = dict(zip(num_gols, freq_num_gols))
+
     # Faremos o mesmo com os gols sofridos
     num_gols, freq_num_gols = np.unique(gols_sofridos, return_counts=True)
     # Por questão de organização transformaremos nossos valores em um dicionário do tipo 'gols':frequencia
     dic_gols_sofridos = dict(zip(num_gols, freq_num_gols))
+
+    # Agora calcularemos a esperança dos gols 
+    esperanca_marcados=0
+    for gol in dic_gols_marcados.keys():
+        esperanca_marcados += gol*(dic_gols_marcados[gol]/len(gols_marcados))
+
+    esperanca_sofridos=0 
+    for gol in dic_gols_sofridos:
+        esperanca_sofridos += gol*(dic_gols_sofridos[gol]/len(gols_sofridos))
