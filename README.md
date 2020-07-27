@@ -1,9 +1,10 @@
 # Probabilidade Para Previsão de Resultados
+Projeto criado durante a produção do tutorial "Introdução à Probabilidade: Probabilidade Para Previsão de Resultados" postado no [meu perfil do dev.to](https://dev.to/lisandramelo/).
 
 
 # Instrução de execução do programa
 
-Após isso execute o programa `main.py` (o uso do python 3.7 é indicado) com o comando
+Execute o programa `main.py` (o uso do python 3.7 é indicado) com o comando
 
 ``` shell
 $  python3.7 main.py
