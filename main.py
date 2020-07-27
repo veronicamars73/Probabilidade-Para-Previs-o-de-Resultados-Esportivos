@@ -29,11 +29,30 @@ for linha in arquivo:
     resultado_rodadas.append([int(x) for x in linha.split(",")])
 
 # Agora iremos trabalhar com os dados que obtemos rodada a rodada
+
 # Inicializaremos nossas listas de gols marcados e gols sofridos
 gols_marcados = []
 gols_sofridos = []
 
-# Também calcularemos nosso número de acertos de resultados
+# Também calcularemos nosso número de acertos de resultados para controlarmos quão boa é nossa previsão
 acertos_rodada = 0
 acertos_gols_marcados = 0
 acertos_gols_sofridos = 0
+
+"""
+Percorreremos nossa lista de resultados por rodada e calcularemos
+o valor esperado de gols marcados e sofridos para cada rodada faremos
+uma previsão com esses valores e depois iremos conferir se esses valores 
+correspondem ao resultado que ocorreu na rodada
+"""
+for rodada in range(len(resultado_rodadas)):
+    gols_marcados.append(resultado_rodadas[rodada][0])
+    gols_sofridos.append(resultado_rodadas[rodada][1])
+    # Agora iremos obter a frequência do número de gols registrados até o momento
+    num_gols, freq_num_gols = np.unique(gols_marcados, return_counts=True)
+    # Por questão de organização transformaremos nossos valores em um dicionário do tipo 'gols':frequencia
+    dic_gols_marcados = dict(zip(num_gols, freq_num_gols))
+    # Faremos o mesmo com os gols sofridos
+    num_gols, freq_num_gols = np.unique(gols_sofridos, return_counts=True)
+    # Por questão de organização transformaremos nossos valores em um dicionário do tipo 'gols':frequencia
+    dic_gols_sofridos = dict(zip(num_gols, freq_num_gols))
