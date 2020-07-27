@@ -1,4 +1,4 @@
-# Poisson Para Previsão de Resultados
+# Probabilidade Para Previsão de Resultados
 
 
 # Instrução de execução do programa
