@@ -67,3 +67,31 @@ for rodada in range(len(resultado_rodadas)):
     esperanca_sofridos=0 
     for gol in dic_gols_sofridos:
         esperanca_sofridos += gol*(dic_gols_sofridos[gol]/len(gols_sofridos))
+
+    # Depois de calcular nossas esperanças vamos imprimí-las e compará-las com os resultados reais
+
+    # As próximas linhas arredondam nosso resultado para um valor inteiro
+    esperanca_marcados = int(np.around(esperanca_marcados))
+    esperanca_sofridos = int(np.around(esperanca_sofridos))
+
+    # Se estivermos na última rodada já realizamos nossa previsão
+    # na iteração anterior então devemos não devemos imprimir nossa esperança
+    if (rodada+1 == len(resultado_rodadas)):
+        break
+    """
+    Agora imprimiremos nosso valor esperado para a rodada que virá
+    como listas têm posição inicial no número 0 temos que adicionar
+    1 ao valor da rodada para conseguirmos a rodada que está sendo lida atualmente,
+    ou seja, temos que adicionar 2 ao numero da `rodada`
+    para conseguirmos o valor da proxima rodada.
+    """
+    print(f'Na {rodada+2} rodada esperamos um resultado de Ajax  {esperanca_marcados} x {esperanca_sofridos} adversário')
+    print(f'Na {rodada+2} rodada obtemos um resultado de Ajax  {resultado_rodadas[rodada+1][0]} x {resultado_rodadas[rodada+1][1]} adversário')
+    
+    # Veremos se acertamos os resultados
+    if(esperanca_marcados==resultado_rodadas[rodada+1][0] and esperanca_sofridos==resultado_rodadas[rodada+1][1]):
+        acertos_rodada += 1
+    if(esperanca_marcados==resultado_rodadas[rodada+1][0]):
+        acertos_gols_marcados += 1
+    if(esperanca_sofridos==resultado_rodadas[rodada+1][1]):
+        acertos_gols_sofridos += 1
