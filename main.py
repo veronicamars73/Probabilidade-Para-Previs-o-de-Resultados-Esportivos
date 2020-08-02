@@ -27,6 +27,9 @@ for linha in arquivo:
     """
     resultado_rodadas.append([int(x) for x in linha.split(",")])
 
+# Fecharemos o arquivo
+arquivo.close()
+
 # Agora iremos trabalhar com os dados que obtemos rodada a rodada
 
 # Inicializaremos nossas listas de gols marcados e gols sofridos
